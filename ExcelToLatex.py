@@ -50,7 +50,10 @@ for row_of_cell_obj in sheet['A1':max_cell]:
 			clip_file.write(str(cell_obj.value) + '\t\\\\')
 		else:
 			clip_file.write(str(cell_obj.value) + '\t&\t')
-	clip_file.write('\n')
+	if row_of_cell_obj == sheet[1]:
+		clip_file.write('\n\t\t\\hline \\hline\n')
+	else:
+		clip_file.write('\n')
 
 clip_file.write(OutputText_end)
 
@@ -70,7 +73,10 @@ for row_of_cell_obj in sheet['A1':max_cell]:
 			print(cell_obj.value, end='\t\\\\')
 		else:
 			print(cell_obj.value, end='\t&\t')
-	print()
+	if row_of_cell_obj == sheet[1]:
+		print('\n\t\t\\hline \\hline')
+	else:
+		print()
 
 print(OutputText_end, end='')
 
@@ -86,4 +92,5 @@ clip_file.close()
 # クリップボードにコピー
 pyperclip.copy(copy_clip)
 
+# クリップ用ファイルを削除
 os.remove(caption + '.txt')
