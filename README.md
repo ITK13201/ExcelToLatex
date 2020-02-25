@@ -2,5 +2,12 @@
 
 Excelの表をLatexのtableに変換するツールです．
 
-# 参考
+## Install
+bash  
+```
+pipenv install pyperclip
+pipenv install openpyxl
+```
+
+## 参考
 - 退屈なことはpythonにやらせよう　オライリー・ジャパン
